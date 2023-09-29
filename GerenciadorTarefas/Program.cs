@@ -10,7 +10,7 @@ while(comando != "9")
 {
     if (comando != null)
     {
-        if(comando.Equals("0"))
+        if (comando.Equals("0"))
         {
             Console.WriteLine("1 - Adicionar tarefa. ");
             Console.WriteLine("2 - Listar tarefa. ");
@@ -47,9 +47,49 @@ while(comando != "9")
             Console.WriteLine("Finalizou!");
         }
         else if(comando == "3") 
-        { 
-            
+        {
+            Console.WriteLine("Editando uma tarefa. Escolha uma");
+
+            for (int i = 0; i < listaTarefas.Count; i++)
+            {
+                Console.WriteLine($"{i + 1} - {listaTarefas[i]} ");
+            }
+
+            string? id = Console.ReadLine();
+            Console.WriteLine("Digite a edição de tarefa");
+            string? textEdicao = Console.ReadLine();
+
+            if (id != null && textEdicao != null)
+            {
+                for (int i = 0; i < listaTarefas.Count; i++)
+                {
+                    string atual = Convert.ToString(i + 1);
+                    if (atual == id)
+                    {
+                        listaTarefas[i] = textEdicao;
+                    }
+                }
+
+                comando = "0";
+            }
+        }
+        else if(comando == "4")
+        {
+            Console.WriteLine("Excluindo uma tarefa. Escolha uma: ");
+
+            for (int i = 0; i < listaTarefas.Count; i++)
+            {
+                Console.WriteLine($"{i + 1} - {listaTarefas[i]} ");
+            }
+            string? enterId = Console.ReadLine();
+
+            if(enterId != null)
+            {
+                int id = Convert.ToInt32(enterId);
+                listaTarefas.RemoveAt(id - 1);
+                Console.WriteLine("Item excluído com sucesso");
+                comando = "0";
+            }
         }
     }
 }
-
