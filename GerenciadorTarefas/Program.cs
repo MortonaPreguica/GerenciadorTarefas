@@ -38,12 +38,17 @@ while(comando != "9")
         {
             Console.WriteLine("Lista de tarefas");
 
-            for (int i = 0; i <= listaTarefas.Count; i++)
+            for (int i = 0; i < listaTarefas.Count; i++)
             {
-                Console.WriteLine($"{i} - {listaTarefas[i]} ");
+                Console.WriteLine($"{i + 1} - {listaTarefas[i]} ");
             }
 
+            comando = "0";
             Console.WriteLine("Finalizou!");
+        }
+        else if(comando == "3") 
+        { 
+            
         }
     }
 }
